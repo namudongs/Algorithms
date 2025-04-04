@@ -1,22 +1,18 @@
 import Foundation
 
-func b10870() {
+func solution() {
     let n = Int(readLine()!)!
+    var prev = 0, curr = 1
     
-    print(fibonacci(n))
-}
-
-func fibonacci(_ num: Int) -> Int {
-    if num <= 1 { return num }
+    if n == 0 { print(0); return }
     
-    var a = 0, b = 1
-    for _ in 2...num {
-        let temp = a + b
-        a = b
-        b = temp
+    for _ in 1..<n {
+        let tmp = prev + curr
+        prev = curr
+        curr = tmp
     }
     
-    return b
+    print(curr)
 }
 
-b10870()
+solution()
